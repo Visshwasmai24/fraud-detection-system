@@ -1,4 +1,5 @@
 """Run with:  python -m pytest -q"""
+from backend.external_evaluation import load_paysim_sample
 import io
 import json
 
@@ -128,7 +129,38 @@ def test_api_validation_and_batch(client):
 
 
 # --------------------------------------------------------- model metadata / behavior
+def test_external_paysim_sampling_is_reproducible(tmp_path):
+    ps = pd.DataFrame({
+        "step": list(range(1, 101)),
+        "type": ["TRANSFER"] * 100,
+        "amount": [100.0] * 100,
+        "nameOrig": [f"C{i}" for i in range(100)],
+        "oldbalanceOrg": [500.0] * 100,
+        "newbalanceOrig": [400.0] * 100,
+        "nameDest": [f"D{i}" for i in range(100)],
+        "oldbalanceDest": [0.0] * 100,
+        "newbalanceDest": [100.0] * 100,
+        "isFraud": [1 if i < 10 else 0 for i in range(100)],
+        "isFlaggedFraud": [0] * 100,
+    })
 
+    path = tmp_path / "paysim.csv"
+    ps.to_csv(path, index=False)
+
+    a = load_paysim_sample(
+        str(path),
+        sample_rows=20,
+        seed=42,
+    )
+
+    b = load_paysim_sample(
+        str(path),
+        sample_rows=20,
+        seed=42,
+    )
+
+    assert len(a) == 20
+    assert a.equals(b)
 def test_model_bundle_schema_metadata_and_threshold_if_trained():
     if not config.MODEL_PATH.exists():
         pytest.skip("train the model first")
