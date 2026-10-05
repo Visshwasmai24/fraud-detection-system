@@ -53,7 +53,7 @@ UPI / Wallet / Bank / E-commerce / FinTech transaction logs
 
 The application does **not** require a fixed external financial database. A new transaction source only needs an adapter mapping into the common schema.
 
-## Main improvements in v2
+## Main improvements
 
 - Semi-structured, source-independent transaction schema.
 - Six overlapping fraud patterns instead of deterministic fraud rules.
