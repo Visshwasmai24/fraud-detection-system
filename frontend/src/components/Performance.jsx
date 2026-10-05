@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { api, pct } from "../api";
 
+const API_URL = import.meta.env.VITE_API_URL || "";
+
 export default function Performance() {
   const [m, setM] = useState(null);
   const [error, setError] = useState("");
@@ -99,8 +101,21 @@ export default function Performance() {
       </section>
 
       <div className="grid two">
-        <section className="card"><h2>Precision–recall curve</h2><img src="/api/plots/pr_curve.png" alt="PR curve" /></section>
-        <section className="card"><h2>Confusion matrix</h2><img src="/api/plots/confusion_matrix.png" alt="Confusion matrix" /></section>
+        <section className="card">
+  <h2>Precision–recall curve</h2>
+  <img
+    src={`${API_URL}/api/plots/pr_curve.png`}
+    alt="PR curve"
+  />
+</section>
+
+<section className="card">
+  <h2>Confusion matrix</h2>
+  <img
+    src={`${API_URL}/api/plots/confusion_matrix.png`}
+    alt="Confusion matrix"
+  />
+</section>
       </div>
 
 
