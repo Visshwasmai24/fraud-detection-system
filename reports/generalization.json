@@ -1,0 +1,61 @@
+{
+  "threshold": 0.17,
+  "split": "temporal",
+  "results": [
+    {
+      "pattern": "account_takeover",
+      "test_fraud_cases": 64,
+      "recall_seen": 0.6562,
+      "recall_unseen": 0.5156,
+      "pr_auc_seen": 0.4186,
+      "pr_auc_unseen": 0.3232,
+      "false_alarm_rate_unseen_model": 0.0171
+    },
+    {
+      "pattern": "credential_compromise",
+      "test_fraud_cases": 32,
+      "recall_seen": 0.5938,
+      "recall_unseen": 0.375,
+      "pr_auc_seen": 0.2357,
+      "pr_auc_unseen": 0.1928,
+      "false_alarm_rate_unseen_model": 0.0232
+    },
+    {
+      "pattern": "device_switch",
+      "test_fraud_cases": 28,
+      "recall_seen": 0.5357,
+      "recall_unseen": 0.4286,
+      "pr_auc_seen": 0.3531,
+      "pr_auc_unseen": 0.2708,
+      "false_alarm_rate_unseen_model": 0.0232
+    },
+    {
+      "pattern": "mule_drain",
+      "test_fraud_cases": 62,
+      "recall_seen": 0.4355,
+      "recall_unseen": 0.3226,
+      "pr_auc_seen": 0.178,
+      "pr_auc_unseen": 0.1097,
+      "false_alarm_rate_unseen_model": 0.0141
+    },
+    {
+      "pattern": "social_engineering",
+      "test_fraud_cases": 31,
+      "recall_seen": 0.2258,
+      "recall_unseen": 0.2258,
+      "pr_auc_seen": 0.0285,
+      "pr_auc_unseen": 0.0207,
+      "false_alarm_rate_unseen_model": 0.0164
+    },
+    {
+      "pattern": "velocity_burst",
+      "test_fraud_cases": 44,
+      "recall_seen": 0.4545,
+      "recall_unseen": 0.3864,
+      "pr_auc_seen": 0.2166,
+      "pr_auc_unseen": 0.0856,
+      "false_alarm_rate_unseen_model": 0.0233
+    }
+  ],
+  "note": "Each model excludes one fraud pattern from the training period and is evaluated on the later test period."
+}
