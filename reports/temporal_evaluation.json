@@ -1,0 +1,21 @@
+{
+  "type": "random_holdout_comparison",
+  "metrics": {
+    "threshold": 0.17,
+    "precision": 0.4073,
+    "recall": 0.5057,
+    "f1": 0.4512,
+    "accuracy": 0.9638,
+    "false_positive_rate": 0.0223,
+    "false_negative_rate": 0.4943,
+    "flagged": 329,
+    "tn": 8540,
+    "fp": 195,
+    "fn": 131,
+    "tp": 134,
+    "expected_cost": 850.0
+  },
+  "pr_auc": 0.4673,
+  "roc_auc": 0.9147,
+  "note": "This is a secondary diagnostic using the production model configuration and threshold. The primary evaluation is chronological to simulate future transactions."
+}
