@@ -43,10 +43,27 @@ export default function Performance() {
           <table>
             <thead><tr><th>Threshold</th><th>Precision</th><th>Recall</th><th>F1</th><th>Flagged</th></tr></thead>
             <tbody>
-              {m.threshold_analysis.map((r) => (
-                <tr key={r.threshold}><td>{r.threshold}</td><td>{pct(r.precision)}</td><td>{pct(r.recall)}</td><td>{pct(r.f1)}</td><td>{r.flagged}</td></tr>
-              ))}
-            </tbody>
+  {m.threshold_analysis
+    .filter((r) => {
+      const t = Number(r.threshold);
+      return [0.20, 0.23, 0.30, 0.50, 0.70, 0.90]
+        .some((x) => Math.abs(t - x) < 0.001);
+    })
+    .map((r) => (
+      <tr key={r.threshold}>
+        <td>
+          {r.threshold}
+          {Math.abs(Number(r.threshold) - Number(d.threshold)) < 0.001 && (
+            <b> ← selected</b>
+          )}
+        </td>
+        <td>{pct(r.precision)}</td>
+        <td>{pct(r.recall)}</td>
+        <td>{pct(r.f1)}</td>
+        <td>{r.flagged}</td>
+      </tr>
+    ))}
+</tbody>
           </table>
         </section>
         <section className="card">
