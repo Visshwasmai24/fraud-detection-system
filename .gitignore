@@ -7,5 +7,8 @@ frontend/dist/
 # models/*.joblib
 reports/*
 !reports/.gitkeep
+!reports/metrics.json
+!reports/generalization.json
+!reports/temporal_evaluation.json
 data/*.jsonl
 data/*.csv
