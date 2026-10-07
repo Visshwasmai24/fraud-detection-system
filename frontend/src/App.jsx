@@ -6,13 +6,15 @@ import StepNav from "./components/StepNav";
 import PaymentSimulator from "./components/PaymentSimulator";
 import BatchUpload from "./components/BatchUpload";
 import Report from "./components/Report";
+import Performance from "./components/Performance";
  
-// Pages in order: Home -> Make Payment -> Batch Upload -> Investigation Report
+// Pages in order: Home -> Make Payment -> Batch Upload -> Investigation Report -> Model Performance
 const PAGES = [
   ["home", "Home"],
   ["pay", "Make Payment"],
   ["batch", "Batch Upload"],
   ["report", "Investigation Report"],
+  ["performance", "Model Performance"],
 ];
 const keys = PAGES.map(([k]) => k);
 const label = (k) => PAGES.find(([key]) => key === k)[1];
@@ -76,6 +78,7 @@ export default function App() {
         {page === "pay" && <PaymentSimulator />}
         {page === "batch" && <BatchUpload />}
         {page === "report" && <Report />}
+        {page === "performance" && <Performance />}
       </main>
  
       {page !== "home" && (
