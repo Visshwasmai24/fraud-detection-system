@@ -79,7 +79,7 @@ export default function PaymentSimulator() {
   return (
     <div className="grid two">
       <section className="card">
-        <h2>UPI-style payment simulator</h2>
+        <h2>Payment simulator</h2>
         <p className="muted">Pick a demo scenario or edit the fields, then press Pay. The transaction goes through
           the Data Adapter, feature engineering and the tuned XGBoost model.</p>
 
