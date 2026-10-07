@@ -21,7 +21,7 @@ export default function BatchUpload() {
     <section className="card">
       <h2>Batch upload</h2>
       <p className="muted">
-        Upload transactions as <b>PaySim CSV</b>, a <b>JSON / JSON-Lines</b> log (nested fields), or a CSV that uses the
+        Upload transactions as <b>CSV</b>, a <b>JSON / JSON-Lines</b> log (nested fields), or a CSV that uses the
         common column names. The Data Adapter converts it to one common format before scoring.
       </p>
       <div className="row">
